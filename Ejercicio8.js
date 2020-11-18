@@ -56,7 +56,7 @@ class Meteo {
 
         var stringDatos = "<h2>" + datos.name + "</h2>";
         
-        //stringDatos += "<p>País: " + datos.sys.country + "</p>";
+        
         stringDatos += "<ul><li>Latitud: " + datos.coord.lat + " grados</li>";
         stringDatos += "<li>Longitud: " + datos.coord.lon + " grados</li>";
         stringDatos += "<li>Temperatura: " + datos.main.temp + " grados Celsius</li>";
@@ -77,7 +77,8 @@ class Meteo {
         stringDatos += "<img src= '" +
           "https://openweathermap.org/img/wn/" + datos.weather[0].icon + "@2x.png '"
           + "alt='Icono " + datos.weather[0].description + "' width='300px' heigth='300px'/>";
-        $("div").html(stringDatos); 
+        stringDatos += "<p>País: " + datos.sys.country + "</p>";
+          $("div").html(stringDatos); 
       },
       error: function () {
         $("div").html("<h2>¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a></h2>");
