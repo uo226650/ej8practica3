@@ -19,6 +19,13 @@ p{
     font-size: 1.3em;
     color:black;
 }
+div {
+    display: flex;
+}
+li {
+    text-align: center;
+    list-style-type: none;
+}
 footer{
        margin-top:2em;
     }
