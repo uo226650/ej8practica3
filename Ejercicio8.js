@@ -16,7 +16,7 @@ class Plantilla {
 
   crearPlantilla() {
 
-    this.crearElemento("h2", "", "footer");
+    this.crearElemento("h2", "No visible", "footer");
     this.crearElemento("div", "", "footer");
 
   }
@@ -25,6 +25,7 @@ class Plantilla {
 
     var elemento = document.createElement(tipoElemento);
     elemento.innerHTML = texto;
+    elemento.style.visibility = "hidden";
     $(insertarAntesDe).before(elemento);
   }
 }
@@ -78,6 +79,7 @@ class Meteo {
       },
       error: function () {
         $("h2").html("¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>");
+        $("h2").visibility = "visible";
         $("div").remove();
       }
     });
@@ -87,6 +89,7 @@ class Meteo {
   verJSON() {
 
     $("h2").html("Datos " + this.ciudad);
+    $("h2").visibility = "visible";
     this.procesaJSON();
   }
 }
