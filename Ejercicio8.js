@@ -4,34 +4,6 @@
 // Obtener un archivo JSON con lo datos meteorológicos de 3 ciudades de la ruta
 
 /**
- * Clase para definir la estructura del HTML que contendrá los datos
- * solicitados por el usuario (la ciudad que elija de las 3 disponibles 
- * a través de botones)
- */
-/*
-class Plantilla {
-
-  constructor() {
-
-  }
-
-  crearPlantilla() {
-
-    this.crearElemento("h2", "No visible", "footer", "hidden");
-    this.crearElemento("div", "", "footer", "visible");
-
-  }
-
-  crearElemento(tipoElemento, texto, insertarAntesDe, visibility) {
-
-    var elemento = document.createElement(tipoElemento);
-    elemento.innerHTML = texto;
-    elemento.style.visibility = visibility;
-    $(insertarAntesDe).before(elemento);
-  }
-}*/
-
-/**
  * Encapsula los métodos en un objeto Meteo
  */
 class Meteo {
@@ -55,8 +27,6 @@ class Meteo {
         //Procesamiento de los datos contenidos en JSON
 
         var stringDatos = "<h2>" + datos.name + "</h2>";
-        
-        
         stringDatos += "<ul><li>Latitud: " + datos.coord.lat + " grados</li>";
         stringDatos += "<li>Longitud: " + datos.coord.lon + " grados</li>";
         stringDatos += "<li>Temperatura: " + datos.main.temp + " grados Celsius</li>";
@@ -72,7 +42,6 @@ class Meteo {
         stringDatos += "<li>Fecha de la medida: " + new Date(datos.dt * 1000).toLocaleDateString() + "</li>";
         stringDatos += "<li>Descripción: " + datos.weather[0].description + "</li>";
         stringDatos += "<li>Visibilidad: " + datos.visibility + " metros</li>";
-        
         stringDatos += "<li>Nubosidad: " + datos.clouds.all + " %</li></ul>";
         stringDatos += "<img src= '" +
           "https://openweathermap.org/img/wn/" + datos.weather[0].icon + "@2x.png '"
@@ -81,21 +50,17 @@ class Meteo {
           $("div").html(stringDatos); 
       },
       error: function () {
-        $("div").html("<h2>¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a></h2>");
-        //$("div").remove();
+        $("div").html("<h2>¡Tenemos problemas! No puedo obtener JSON de <a href='https://openweathermap.org'>OpenWeatherMap</a></h2>");
       }
     });
   }
 
 
   verJSON() {
-
-    //$("h2").html("Datos " + this.ciudad);
     this.procesaJSON();
   }
 }
 
-//var plantilla = new Plantilla();
 var meteoOviedo = new Meteo("Oviedo");
 var meteoSalas = new Meteo("Salas");
 var meteoGrado = new Meteo("Grado");
