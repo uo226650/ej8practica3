@@ -45,7 +45,7 @@ class Meteo {
         stringDatos += "<li>Nubosidad: " + datos.clouds.all + " %</li></ul>";
         stringDatos += "<img src= '" +
           "https://openweathermap.org/img/wn/" + datos.weather[0].icon + "@2x.png '"
-          + "alt='Icono " + datos.weather[0].description + "' width='300px' heigth='300px'/>";
+          + "alt='Icono " + datos.weather[0].description + "' width='300' height='300'/>";
         stringDatos += "<p>País: " + datos.sys.country + "</p>";
           $("div").html(stringDatos); 
       },
